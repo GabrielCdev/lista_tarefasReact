@@ -1,2 +1,2 @@
-export { default as UsersTable } from './UsersTable';
-export { default as UsersToolbar } from './UsersToolbar';
+export { default as TarefasTable } from './TarefasTable';
+export { default as TarefasToolbar } from './TarefasToolbar';
