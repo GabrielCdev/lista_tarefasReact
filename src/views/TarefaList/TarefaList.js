@@ -21,7 +21,7 @@ const TarefaList = () => {
     <div className={classes.root}>
       <TarefasToolbar />
       <div className={classes.content}>
-        <TarefasTable utarefassers={users} />
+        <TarefasTable tarefas={tarefas} />
       </div>
     </div>
   );
