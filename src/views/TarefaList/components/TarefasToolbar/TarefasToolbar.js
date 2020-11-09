@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/styles';
-import { 
+import {
   Button,
   TextField,
   Grid,
@@ -44,8 +44,11 @@ const TarefasToolbar = props => {
 
   const submit = (event) => {
     event.preventDefault();
-
-    console.log(`Valores: descricao - ${descricao}, categoria - ${categoria}`)
+    const tarefa = {
+      descricao: descricao,
+      categoria: categoria
+    }
+    props.salvar(tarefa);
   }
 
   return (
@@ -58,7 +61,10 @@ const TarefasToolbar = props => {
       </div>
       <div className={classes.row}>
         <Grid container>
-          <Grid item md={4}>
+          <Grid
+            item
+            md={4}
+          >
             <TextField
               className={classes.searchInput}
               fullWidth
@@ -69,11 +75,17 @@ const TarefasToolbar = props => {
             />
           </Grid>
 
-          <Grid item md={4}>
+          <Grid
+            item
+            md={4}
+          >
             <FormControl fullWidth>
               <InputLabel>Categoria: </InputLabel>
-              <Select value={categoria} onChange={e => setCategoria(e.target.value)}>
-                <MenuItem value=''>Selecione...</MenuItem>
+              <Select
+                onChange={e => setCategoria(e.target.value)}
+                value={categoria}
+              >
+                <MenuItem value="">Selecione...</MenuItem>
                 <MenuItem value={'ESTUDOS'}>Estudos</MenuItem>
                 <MenuItem value={'TRABALHO'}>Trabalho</MenuItem>
                 <MenuItem value={'OUTROS'}>Outros</MenuItem>
@@ -81,8 +93,15 @@ const TarefasToolbar = props => {
             </FormControl>
           </Grid>
 
-          <Grid item md={2}>
-            <Button onClick={submit} variant="contained" color="secondary">Adicionar</Button>
+          <Grid
+            item
+            md={2}
+          >
+            <Button
+              color="secondary"
+              onClick={submit}
+              variant="contained"
+            >Adicionar</Button>
           </Grid>
         </Grid>
       </div>
