@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/styles';
 
 import { TarefasToolbar, TarefasTable } from './components';
@@ -25,7 +25,7 @@ const TarefaList = () => {
     axios.post(API_URL, tarefa, {
       headers: headers
     }).then(response => {
-      console.log(response.data);
+      listarTarefas();
     }).catch(erro => {
       console.log(erro);
     });
@@ -37,11 +37,16 @@ const TarefaList = () => {
     }).then(response => {
       const listaDeTarefas = response.data;
 
+      console.log(listaDeTarefas);
       setTarefas(listaDeTarefas);
     }).catch(erro => {
       console.log(erro);
     });
   }
+
+  useEffect(() => {
+    listarTarefas();
+  }, []);
 
   return (
     <div className={classes.root}>

@@ -56,8 +56,7 @@ const TarefasTable = props => {
                   <TableCell>Status</TableCell>
                 </TableRow>
               </TableHead>
-              <TableBody>
-              </TableBody>
+              <TableBody />
             </Table>
           </div>
         </PerfectScrollbar>
