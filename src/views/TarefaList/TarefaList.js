@@ -38,10 +38,10 @@ const TarefaList = () => {
       const listaDeTarefas = response.data;
 
       setTarefas(listaDeTarefas);
-    }).catch(erro) {
+    }).catch(erro => {
       console.log(erro);
-    };
-  };
+    });
+  }
 
   return (
     <div className={classes.root}>
