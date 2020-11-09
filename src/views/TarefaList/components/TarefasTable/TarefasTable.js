@@ -56,7 +56,20 @@ const TarefasTable = props => {
                   <TableCell>Status</TableCell>
                 </TableRow>
               </TableHead>
-              <TableBody />
+              <TableBody>
+                {
+                  tarefas.map(tarefa => {
+                    return(
+                      <TableRow key={tarefa.id}>
+                        <TableCell>{ tarefa.id }</TableCell>
+                        <TableCell>{ tarefa.descricao }</TableCell>
+                        <TableCell>{ tarefa.categoria }</TableCell>
+                        <TableCell>{ tarefa.done ? 'Feito' : 'Pendente' }</TableCell>
+                      </TableRow>
+                    )
+                  })
+                }
+              </TableBody>
             </Table>
           </div>
         </PerfectScrollbar>
