@@ -13,19 +13,34 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+const API_URL = 'https://minhastarefas-api.herokuapp.com/tarefas';
+const headers = {'x-tenant-id': 'desafio3@email.com'}
+
 const TarefaList = () => {
   const classes = useStyles();
 
-  const [tarefas] = useState([]);
+  const [tarefas, setTarefas] = useState([]);
 
   const salvar = (tarefa) => {
-    axios.post('https://minhastarefas-api.herokuapp.com/tarefas', tarefa, {
-      headers: { 'x-tenant-id': 'desafio3@email.com' }
+    axios.post(API_URL, tarefa, {
+      headers: headers
     }).then(response => {
       console.log(response.data);
     }).catch(erro => {
       console.log(erro);
     });
+  };
+
+  const listarTarefas = () => {
+    axios.get(API_URL, {
+      headers: headers
+    }).then(response => {
+      const listaDeTarefas = response.data;
+
+      setTarefas(listaDeTarefas);
+    }).catch(erro) {
+      console.log(erro);
+    };
   };
 
   return (
