@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link as withRouter } from 'react-router-dom';
+import { Link as RouterLink, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import {
